@@ -1,0 +1,51 @@
+table {
+  width: 100%;
+  height: 100%;
+}
+
+.subject-text {
+  font-weight: bold;
+}
+
+.snippet-text {
+  font-weight: lighter;
+}
+
+.chip-padding {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+mat-chip {
+  padding: 1px 9px !important;
+  font-size: .8em;
+}
+
+.date-text {
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+mat-paginator {
+  position: sticky;
+  position: -webkit-sticky; /* For macOS/iOS Safari */
+  bottom: 0px; /* Sets the sticky toolbar to be on top */
+  z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+}
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 20px);
+}
+
+.spinner-container mat-spinner {
+  color: white;
+  padding: 12px;
+}
+
+.attachment-div {
+  height: 32px;
+  width: 32px;
+}

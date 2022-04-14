@@ -1,0 +1,21 @@
+<div class="dialog-area">
+  <button mat-flat-button class="url-button" color="primary" (click)="openSignIn()" [disabled]="!req.URL">Get Token</button>
+
+  <form [formGroup]="options">
+    <mat-form-field class="form-field" appearance="standard">
+      <mat-label>Access Token</mat-label>
+      <textarea
+        matInput
+        class="text-area"
+        [required]="true"
+        [formControl]="tokenInput"
+        [rows]="2">
+      </textarea>
+    </mat-form-field>
+  </form>
+
+  <div class="button-row">
+    <button mat-button [disabled]="loading" (click)="onCancel()">Cancel</button>
+    <button mat-button [disabled]="loading" (click)="onOk()">Ok</button>
+  </div>
+</div>

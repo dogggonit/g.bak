@@ -1,0 +1,26 @@
+.dialog-area {
+}
+
+.button-row {
+  width: 300px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+form {
+  width: 300px;
+}
+
+.text-area {
+  resize: none;
+  width: 300px;
+}
+
+.form-field {
+  width: 300px;
+}
+
+.url-button {
+  width: 100%;
+}

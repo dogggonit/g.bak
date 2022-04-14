@@ -1,0 +1,31 @@
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.bold-text {
+  font-weight: bold;
+}
+
+.container {
+  position: absolute;
+  top: 64px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.add-button {
+  width: 100%;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.toolbar {
+  height: 64px;
+}

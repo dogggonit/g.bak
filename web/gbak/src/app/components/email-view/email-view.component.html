@@ -1,0 +1,9 @@
+<div class="overall-div">
+    <mat-card class="browser-window part-nav">
+      <email-part-browser [message]="message" [(display)]="toDisplay">
+      </email-part-browser>
+    </mat-card>
+  <div class="content">
+    <app-part-display [part]="toDisplay"></app-part-display>
+  </div>
+</div>

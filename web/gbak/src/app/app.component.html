@@ -1,0 +1,43 @@
+<mat-toolbar class="toolbar" color="primary">
+  <button mat-icon-button (click)="handleSidenav()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <div class="spacer"></div>
+  <span>{{title}}</span>
+</mat-toolbar>
+
+<mat-sidenav-container class="container">
+  <mat-sidenav mode="side" [opened]="opened.value" (openedChange)="opened.next($event)">
+    <mat-list>
+      <mat-list-item>
+        <button class="add-button" mat-flat-button (click)="addNew()" color="primary">Add</button>
+      </mat-list-item>
+
+      <div *ngFor="let u of labels">
+        <mat-expansion-panel
+          class="mat-elevation-z0"
+          [disabled]="true"
+          [expanded]="true"
+          [hideToggle]="true">
+          <mat-expansion-panel-header>
+            <mat-list-item>
+              <a>
+                <h4 mat-line>{{u.Email}}</h4>
+              </a>
+            </mat-list-item>
+          </mat-expansion-panel-header>
+          <mat-list style="margin-left:30px;">
+            <div *ngFor="let l of u.Labels">
+              <mat-list-item>
+                <a style="cursor: pointer;" (click)="labelClicked(u, l)">
+                  <p mat-line>{{l.Label}}</p>
+                </a>
+              </mat-list-item>
+            </div>
+          </mat-list>
+        </mat-expansion-panel>
+      </div>
+    </mat-list>
+  </mat-sidenav>
+  <router-outlet></router-outlet>
+</mat-sidenav-container>

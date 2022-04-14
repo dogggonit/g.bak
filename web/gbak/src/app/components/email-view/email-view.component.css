@@ -1,0 +1,32 @@
+.container {
+  height: 100vh;
+  width: 100%;
+  #overflow-y: scroll;
+}
+
+.subject-text {
+  max-height: 1em;
+}
+
+.to-from-text {
+  font-weight: lighter;
+  font-size: 75%;
+  max-height: 1em;
+}
+
+.part-nav {
+  height: 100%;
+  width: 15%;
+}
+
+.overall-div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.content {
+  width: 85%;
+  height: 100%
+}

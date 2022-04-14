@@ -1,0 +1,21 @@
+<div class="flex-column">
+  <a>
+    <h4 mat-line>Attachments</h4>
+  </a>
+  <app-email-attachment-list
+    [message]="message"
+    [(display)]="display"
+    [id]="0">
+
+  </app-email-attachment-list>
+
+  <a>
+    <h4 mat-line>Message</h4>
+  </a>
+
+  <app-email-body-list
+    [message]="message"
+    [(display)]="display"
+    [id]="nextId">
+  </app-email-body-list>
+</div>

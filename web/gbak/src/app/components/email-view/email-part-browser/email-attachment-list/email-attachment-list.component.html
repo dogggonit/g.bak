@@ -1,0 +1,16 @@
+<div *ngIf="message?.Body?.Attachment">
+  <button *ngIf="_display?.message?.ID !== message.ID || display?.displayType !== 'attachment'" class="nav-button" mat-flat-button (click)="onClick()">
+    {{message?.Body?.Attachment?.Filename || 'Uknown'}}
+  </button>
+
+  <button *ngIf="_display?.message?.ID === message.ID && _display?.displayType === 'attachment'" class="nav-button" mat-flat-button color="primary">
+    {{message?.Body?.Attachment?.Filename || 'Uknown'}}
+  </button>
+</div>
+
+<div *ngFor="let p of message.Parts; let i = index">
+  <app-email-attachment-list
+    [message]="p"
+    [(display)]="display">
+  </app-email-attachment-list>
+</div>

@@ -1,0 +1,62 @@
+<div *ngIf="_message && _message?.Body">
+  <button
+    class="nav-button"
+    mat-flat-button
+    *ngIf="_message.ID === display?.message?.ID && display?.displayType === 'body'"
+    color="primary">
+    Body ({{_message.MimeType}})
+  </button>
+
+  <button
+    class="nav-button"
+    mat-flat-button
+    *ngIf="_message.ID !== display?.message?.ID || display?.displayType !== 'body'"
+    (click)="onClick(_message, 'body')">
+    {{_message.Filename == '' ? 'Body (' + _message.MimeType + ')' : _message.Filename}}
+  </button>
+</div>
+
+<div *ngIf="_message && _message?.Headers?.length || 0 > 0">
+  <button
+    class="nav-button"
+    mat-flat-button
+    *ngIf="_message.ID === display?.message?.ID && display?.displayType === 'header'"
+    color="primary">
+    Headers
+  </button>
+
+  <button
+    class="nav-button"
+    mat-flat-button
+    *ngIf="_message.ID !== display?.message?.ID || display?.displayType !== 'header'"
+    (click)="onClick(_message, 'header')">
+    Headers
+  </button>
+</div>
+
+
+<div *ngFor="let p of _message?.Parts || []; let i = index">
+  <div>
+    <button
+      class="nav-button"
+      color="primary"
+      *ngIf="!openedIndexes[i]"
+      (click)="togglePart(i)"
+      mat-stroked-button>
+      Part '{{p.GmailId}}'
+    </button>
+    <button
+      class="nav-button"
+      color="accent"
+      *ngIf="openedIndexes[i]"
+      (click)="togglePart(i)"
+      mat-flat-button>
+      Part '{{p.GmailId}}'
+    </button>
+    <app-email-body-list
+      [message]="p"
+      *ngIf="openedIndexes[i]"
+      [(display)]="display"
+    ></app-email-body-list>
+  </div>
+</div>

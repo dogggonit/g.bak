@@ -1,0 +1,52 @@
+<div>
+  <div class="spinner-container" *ngIf="loading">
+    <mat-spinner></mat-spinner>
+  </div>
+</div>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <ng-container matColumnDef="Subject">
+    <td mat-cell *matCellDef="let email">
+      <div class="flex-column">
+        <span class="subject-text">{{email.Subject}}</span>
+        <span class="snippet-text">{{email.Snippet}}</span>
+      </div>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Attachment">
+    <td mat-cell *matCellDef="let email">
+      <div class="attachment-div">
+        <mat-icon *ngIf="email.HasAttachment">attach_file</mat-icon>
+      </div>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="From">
+    <td mat-cell *matCellDef="let email">
+      <span class="subject-text">{{email.From}}</span>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Labels">
+    <td mat-cell *matCellDef="let email" class="chip-padding">
+      <mat-chip-list>
+        <mat-chip *ngFor="let label of email.Labels" [style.color]="label.TextColor" [style.background-color]="label.BackgroundColor">{{label.Label}}</mat-chip>
+      </mat-chip-list>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Date">
+    <td mat-cell *matCellDef="let email">
+      <span class="date-text">{{email.Date | date:'short'}}</span>
+    </td>
+  </ng-container>
+
+  <tr (click)="rowClicked(row)" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<mat-paginator
+  (page)="loadEmailPage($event)"
+  [showFirstLastButtons]="true"
+  [pageSizeOptions]="pageSizes">
+</mat-paginator>

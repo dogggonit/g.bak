@@ -1,0 +1,31 @@
+mat-toolbar {
+  height: 64px;
+
+  position: sticky;
+  position: -webkit-sticky; /* For macOS/iOS Safari */
+  top: 0; /* Sets the sticky toolbar to be on top */
+  z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+}
+
+.spacer {
+  width: 16px;
+}
+
+.sidenav {
+  position: absolute;
+  top: 64px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 90%;
+  max-width: 512px;
+}
+
+.example-viewport{
+  height: 100%;
+}
+
+.sidebar-content {
+  height: 100%;
+}

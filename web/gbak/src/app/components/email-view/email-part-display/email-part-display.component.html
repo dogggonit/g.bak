@@ -1,0 +1,21 @@
+<div *ngIf="part">
+  <div [ngSwitch]="part.displayType">
+    <div *ngSwitchCase="'attachment'">
+      <div [ngSwitch]="part.message.MimeType">
+        <div *ngFor="let imt of imageMimeTypes">
+          <div *ngSwitchCase="imt">
+            <img [src]="getAsImage()" alt="part.message.MimeType">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngSwitchCase="'body'">
+
+    </div>
+    <div *ngSwitchCase="'header'">
+      <div *ngFor="let h of part.message.Headers">
+        {{h.Name + ': ' + h.Value}}
+      </div>
+    </div>
+  </div>
+</div>
